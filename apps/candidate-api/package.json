@@ -1,0 +1,21 @@
+{
+  "name": "candidate-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Candidate solution workspace for the portfolio take-home task",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@stellarshift/abi-tools": "^1.0.0",
+    "@stellarshift/chain-metadata": "^1.0.0",
+    "@stellarshift/evm-address-kit": "^1.0.0",
+    "@stellarshift/token-units": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

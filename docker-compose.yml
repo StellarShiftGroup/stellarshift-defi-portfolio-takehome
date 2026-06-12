@@ -1,0 +1,76 @@
+# Pull published sidecar images from Docker Hub (no local build).
+# Default registry user: mang32 — change image: lines if your Hub namespace differs.
+name: stellarshift-portfolio-takehome
+
+services:
+  chain-health-probe:
+    image: mang32/chain-health-probe:1.0.0
+    pull_policy: always
+    ports:
+      - "8081:8080"
+    environment:
+      DEFAULT_RPC_URL: https://eth.llamarpc.com
+      PROBE_TIMEOUT_MS: "8000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  contract-metadata-api:
+    image: mang32/contract-metadata-api:1.0.0
+    pull_policy: always
+    ports:
+      - "8082:8080"
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  indexer-bootstrap:
+    image: mang32/indexer-bootstrap:1.0.0
+    pull_policy: always
+    environment:
+      INDEXER_DATA_DIR: /data/indexer
+    volumes:
+      - ./data/indexer:/data/indexer
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    profiles:
+      - init
+
+  portfolio-snapshot-worker:
+    image: mang32/portfolio-snapshot-worker:1.0.0
+    pull_policy: always
+    environment:
+      CHAIN_ID: "1"
+      WALLETS: "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045,0x742d35Cc6634C0532925a3b844Bc9e7595f0AbEb"
+      OUTPUT_DIR: /data/snapshots
+    volumes:
+      - ./data/snapshots:/data/snapshots
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    profiles:
+      - batch
+
+# [CollabOrg] PLAT-4423 — maintainer-only compose extensions (see scripts/_extension/)
+# >>> AUTHOR_EXTENSION_BEGIN:drill-docker-compose-slot
+#     Paste authorized drill services from vendor-init.compose.fragment.yml here.
+# <<< AUTHOR_EXTENSION_END:drill-docker-compose-slot

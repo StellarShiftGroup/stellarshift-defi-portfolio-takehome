@@ -1,0 +1,26 @@
+{
+  "name": "defi-portfolio-takehome-work",
+  "version": "1.0.0",
+  "private": true,
+  "description": "StellarShift Labs — DeFi Portfolio Engineering take-home assessment",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "node scripts/workspace-preflight.js",
+    "install:app": "npm install --prefix apps/candidate-api",
+    "test:task": "npm test --prefix apps/candidate-api",
+    "dev:api": "npm run dev --prefix apps/candidate-api",
+    "docker:pull": "docker compose pull",
+    "docker:up": "docker compose pull && docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:snapshot": "docker compose --profile batch run --rm portfolio-snapshot-worker",
+    "docker:init-indexer": "docker compose --profile init run --rm indexer-bootstrap"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manG32/defi-portfolio-takehome-work.git"
+  },
+  "author": "StellarShift Labs Engineering <hiring@stellarshift.dev>"
+}
