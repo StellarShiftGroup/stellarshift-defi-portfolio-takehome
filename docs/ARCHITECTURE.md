@@ -9,7 +9,7 @@
      optional      │  docker compose pull
                    ▼
 ┌──────────────────────────────────────────┐
-│  Docker Hub sidecars (mang32/*)          │
+│  Docker Hub sidecars (stellarshift/*)    │
 │  :8081 health-probe  :8082 metadata-api   │
 └──────────────────────────────────────────┘
 ```
