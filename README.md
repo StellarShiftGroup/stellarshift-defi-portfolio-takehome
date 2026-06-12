@@ -66,7 +66,7 @@ npm run docker:up
 # contract-metadata-api → http://localhost:8082/v1/chains
 ```
 
-Images are pulled from Docker Hub (`mang32/*`); no build step in this repo.
+Images are pulled from Docker Hub (`stellarshift/*`); no build step in this repo.
 
 ### 4. Run candidate API
 
@@ -99,10 +99,10 @@ npm run docker:down
 
 | Image | Hub |
 |-------|-----|
-| `mang32/chain-health-probe:1.0.0` | Docker Hub |
-| `mang32/contract-metadata-api:1.0.0` | Docker Hub |
-| `mang32/portfolio-snapshot-worker:1.0.0` | Docker Hub |
-| `mang32/indexer-bootstrap:1.0.0` | Docker Hub |
+| `stellarshift/chain-health-probe:1.0.0` | [Docker Hub](https://hub.docker.com/r/stellarshift/chain-health-probe) |
+| `stellarshift/contract-metadata-api:1.0.0` | [Docker Hub](https://hub.docker.com/r/stellarshift/contract-metadata-api) |
+| `stellarshift/portfolio-snapshot-worker:1.0.0` | [Docker Hub](https://hub.docker.com/r/stellarshift/portfolio-snapshot-worker) |
+| `stellarshift/indexer-bootstrap:1.0.0` | [Docker Hub](https://hub.docker.com/r/stellarshift/indexer-bootstrap) |
 
 ---
 
