@@ -41,14 +41,14 @@ registry=https://registry.npmmirror.com
 
 | Service | Image |
 |---------|-------|
-| chain-health-probe | `mang32/chain-health-probe:1.0.0` |
-| contract-metadata-api | `mang32/contract-metadata-api:1.0.0` |
-| portfolio-snapshot-worker | `mang32/portfolio-snapshot-worker:1.0.0` |
-| indexer-bootstrap | `mang32/indexer-bootstrap:1.0.0` |
+| chain-health-probe | `stellarshift/chain-health-probe:1.0.0` |
+| contract-metadata-api | `stellarshift/contract-metadata-api:1.0.0` |
+| portfolio-snapshot-worker | `stellarshift/portfolio-snapshot-worker:1.0.0` |
+| indexer-bootstrap | `stellarshift/indexer-bootstrap:1.0.0` |
 
 ```bash
 npm run docker:pull
 npm run docker:up
 ```
 
-Change the `mang32/` prefix in `docker-compose.yml` if your Hub namespace differs.
+Hub org: [stellarshift](https://hub.docker.com/u/stellarshift) on Docker Hub.
