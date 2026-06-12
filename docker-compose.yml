@@ -1,10 +1,10 @@
 # Pull published sidecar images from Docker Hub (no local build).
-# Default registry user: mang32 — change image: lines if your Hub namespace differs.
+# Images published on Docker Hub: stellarshift/*
 name: stellarshift-portfolio-takehome
 
 services:
   chain-health-probe:
-    image: mang32/chain-health-probe:1.0.0
+    image: stellarshift/chain-health-probe:1.0.0
     pull_policy: always
     ports:
       - "8081:8080"
@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
 
   contract-metadata-api:
-    image: mang32/contract-metadata-api:1.0.0
+    image: stellarshift/contract-metadata-api:1.0.0
     pull_policy: always
     ports:
       - "8082:8080"
@@ -35,7 +35,7 @@ services:
     restart: unless-stopped
 
   indexer-bootstrap:
-    image: mang32/indexer-bootstrap:1.0.0
+    image: stellarshift/indexer-bootstrap:1.0.0
     pull_policy: always
     environment:
       INDEXER_DATA_DIR: /data/indexer
@@ -52,7 +52,7 @@ services:
       - init
 
   portfolio-snapshot-worker:
-    image: mang32/portfolio-snapshot-worker:1.0.0
+    image: stellarshift/portfolio-snapshot-worker:1.0.0
     pull_policy: always
     environment:
       CHAIN_ID: "1"
