@@ -43,8 +43,8 @@ defi-portfolio-takehome-work/
 ### 1. Clone & install
 
 ```bash
-git clone https://github.com/manG32/defi-portfolio-takehome-work.git
-cd defi-portfolio-takehome-work
+git clone https://github.com/StellarShiftGroup/stellarshift-defi-portfolio-takehome.git
+cd stellarshift-defi-portfolio-takehome
 npm run install:app
 ```
 
